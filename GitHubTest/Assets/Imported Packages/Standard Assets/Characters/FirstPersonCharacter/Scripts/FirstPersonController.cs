@@ -61,6 +61,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            if(PauseMenu.GameIsPaused)
+            {
+                m_MouseLook.SetCursorLock(false);
+                return;
+            }
+            else
+            {
+                m_MouseLook.SetCursorLock(true);
+            }
+            
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
